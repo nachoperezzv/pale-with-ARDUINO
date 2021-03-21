@@ -1,1 +1,9 @@
 # pale-with-ARDUINO
+
+- robot.h y robot.cpp: se define e implementa la clase Robot, cuyos métodos encienden y apagan los LEDs, que simulan el movimiento del robot.
+
+- pale.h y pale.cpp: en estos archivos se implementa la clase Pale. La representación interna del palé se lleva a cabo mediante una matriz de booleanos, que indican si está ocupada o no esa posición del palé (0 si está libre, 1 si está ocupada). Dicha clase consta de dos métodos: ‘inserta’ e ‘insertaPrimera’. En el primero de ellos, se inserta una lata en la posición que se le pasa como parámetro (de tipo Point, definido en pale.h), si está vacía, si se ha podido insertar se devuelve un valor true y, si no, false. El tipo Point es una estructura que consta de dos enteros, uno representa la posición en el eje x, y otro en el eje y. Por otro lado, la función ‘insertaPrimera’ posiciona, si es posible, la lata en la primera posición libre (si la hay) y la devuelve, como tipo Point. Por último, en el constructor se reserva la memoria para la matriz y se inicializan a 0 todos los valores de la misma.
+
+- interruptions.h: Se definen las interrupciones tanto de entrada como de salida, procesos donde se realiza la acción de insertar latas o comprobar si ésto no es posible, mandar los mensajes necesarios por pantalla LCD, y mantener la comunicación serial con MATLAB sobre el estado de los sensores, las interrupciones se dan básicamente cuando en una posición dada ya hay una lata insertada.
+
+- main.ino: se trata del código principal de arduino que juntan las clases e interrupciones ya definidadas y determina el orden de ejecución, además mantiene una comunicación en serie con la interfaz diseñada para Matlab. Se utilizan las librerías creadas y en el código se definen los momentos en que se deben lanzar las interrupciones para entrada y salida. 
