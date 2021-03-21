@@ -20,8 +20,8 @@
  Point pos;
  
  void setup() {
-    Serial.begin(9600);
-    Serial.setTimeout(1500);
+    Serial.begin(19200);
+    Serial.setTimeout(3200);
     setISR();    
  }
 
@@ -29,6 +29,7 @@
     if(ISR1){      
       if(Serial.readString() == "1"){
         pos = p.insertaPrimera();
+        Serial.println("lata");
         
         //MatLab solicita que se le indique donde se ha colocado la lata
         Serial.read();    //Primero se pide la fila y se le envia
@@ -42,8 +43,8 @@
       }
           
       if(Serial.readString() == "2"){
-        Serial.println("pos");
-
+        Serial.println("lata");
+        
         pos.x = Serial.parseInt();  //Los datos son recibidos como texto y se 
         pos.y = Serial.parseInt();  //convierten a enteros
         
@@ -55,7 +56,7 @@
         }  
         else{ //Si la posición introducida por la interfaz no es correcta entonces se 
               //asigna la primera posición libre (modo 1)
-          Serial.println("");
+          Serial.println("2");
           p.insertaPrimera();
           
           //MatLab solicita que se le indique donde se ha colocado la lata
@@ -71,5 +72,9 @@
       }
 
       ISR1 = false;
+   }
+   else{
+      if(Serial.read())
+        Serial.println("nolata");
    }
  }
