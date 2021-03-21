@@ -19,14 +19,17 @@
     digitalWrite(pinL2, HIGH);
  }
 
+//Destructor
  Robot::~Robot(){}
 
+//Si se coloca una lata
  void Robot::colocando(){
-    digitalWrite(pinL1,HIGH);
-    digitalWrite(pinL2,LOW);
+    digitalWrite(pinL1,HIGH);//Se encuende el pin verde
+    digitalWrite(pinL2,LOW);//Se apaga el led rojo
  }
 
+//Si no se coloca ninguna lata
  void Robot::quieto(){
-    digitalWrite(pinL1,LOW);
-    digitalWrite(pinL2,HIGH);
+    digitalWrite(pinL1,LOW);//Se apaga el led verde
+    digitalWrite(pinL2,HIGH);//Se enchufa el rojo
  }
