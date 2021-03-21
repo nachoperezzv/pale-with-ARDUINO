@@ -1,4 +1,5 @@
 # pale-with-ARDUINO
+El codigo implementado resuelve el problema 2 de la segunda práctica de Sensores. Consta de varios archivos escritos en C++ y una interfaz grafica creada en MATLAB. Los archivos son los siguientes:
 
 - robot.h y robot.cpp: se define e implementa la clase Robot, cuyos métodos encienden y apagan los LEDs, que simulan el movimiento del robot.
 
